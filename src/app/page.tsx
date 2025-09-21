@@ -1,21 +1,31 @@
-'use client';
-
 import Link from 'next/link';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
+import LogoutButton from './LogoutButton';
 
-export default function Home() {
-  const handleExit = () => {
-    if (typeof window !== 'undefined') {
-      window.close();
-    }
-  };
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  if (error || !user) {
+    redirect('/login');
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-black flex flex-col items-center justify-center p-8">
       <div className="text-center">
         {/* Title */}
-        <h1 className="text-6xl font-bold text-white mb-16 tracking-wider drop-shadow-lg">
+        <h1 className="text-6xl font-bold text-white mb-8 tracking-wider drop-shadow-lg">
           Windfall BlackJack
         </h1>
+
+        {/* Welcome Message */}
+        <p className="text-white text-lg mb-16 opacity-90">
+          Welcome, {user.email}!
+        </p>
 
         {/* Menu Options */}
         <div className="space-y-6">
@@ -47,12 +57,7 @@ export default function Home() {
             ⚙️ Settings
           </Link>
 
-          <button
-            onClick={handleExit}
-            className="block w-64 mx-auto bg-red-700 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
-          >
-            🚪 Exit
-          </button>
+          <LogoutButton />
         </div>
       </div>
     </div>
