@@ -117,6 +117,10 @@ Advanced game options, gameplay records, and expanded analytics & reports.
 
 Comprehensive tutorial system, strategy guides, and interactive learning tools. This phase transforms the application from pure entertainment to educational platform.
 
+### Phase 4: Deployment
+
+Create a production pipeline, configure hosting service (probably vercel), and setup project to exist for a finite amount of time.
+
 ## Technical Considerations
 
 ### Performance Optimization
