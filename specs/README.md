@@ -1,4 +1,4 @@
-This directory contains specification documents that provide a high level overview of SABS and major features. As we
+This directory contains specification documents that provide a high level overview of SABS and major features. Reference this document when creating additional spec files.
 
 ## Writing Guidelines
 
@@ -95,3 +95,7 @@ This directory contains specification documents that provide a high level overvi
 **Multi-Audience Design**: The structure serves both as technical design documents for developers and as comprehensive system documentation for understanding the current state of features.
 
 This structure creates a cohesive documentation system that serves as both forward-looking design specifications and backward-compatible system documentation, with strong interconnections between related features and consistent formatting patterns that make the documentation navigable and maintainable.
+
+### Rejected Approaches
+
+It is important to consider previous suggestions that were rejected to better make additional suggestions. If there become approaches, suggestions, or solutions that are rejected by the user, make sure to take note here. Include the rejected premise and the reason why.
